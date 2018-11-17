@@ -8,16 +8,16 @@ services:
         public: false
 
     Elasticsearch\ClientBuilder:
-      class: Elasticsearch\ClientBuilder
-      factory: [Elasticsearch\ClientBuilder, create]
-      calls:
-        - method: setHosts
-          arguments:
-            - ['%env(ELASTICSEARCH_HOSTS_STRING)%']
+        class: Elasticsearch\ClientBuilder
+        factory: [Elasticsearch\ClientBuilder, create]
+        calls:
+            -   method: setHosts
+                arguments:
+                    - ['%env(ELASTICSEARCH_HOSTS_STRING)%']
 
     Elasticsearch\Client:
-      class: Elasticsearch\Client
-      factory: ['@Elasticsearch\ClientBuilder', build]
+        class: Elasticsearch\Client
+        factory: ['@Elasticsearch\ClientBuilder', build]
 
     Shopsys\MicroserviceProductSearch\:
         resource: '../src/*'
