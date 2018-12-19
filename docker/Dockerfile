@@ -223,7 +223,7 @@ RUN composer global require hirak/prestissimo
 # copy source code to the container
 COPY --chown=www-data:www-data / /var/www/html
 
-RUN composer install -o --no-dev
+RUN composer install -o --no-dev --ignore-platform-reqs
 
 ########################################################################################################################
 
